@@ -1,4 +1,4 @@
-package com.zjp.java8;
+package com.zjp.java8.lambda;
 /**
  *Lambda表达式的使用
  *
