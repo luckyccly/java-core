@@ -13,11 +13,14 @@ class MyThread implements Callable<String>{
 	}
 
 }
+//
 public class CallableDemo {
 	public static void main(String[] args) throws InterruptedException, ExecutionException {
 		//Thread t = new Thread();
 		FutureTask futureTask = new FutureTask(new MyThread());
+		//以下两个线程使用同一个futureTask对象，所以call()方法只会调用一次。
 		new Thread(futureTask,"A").start();
+		new Thread(futureTask,"B").start();
 		String ret = (String)futureTask.get();
 		System.out.println(ret);
 	}
